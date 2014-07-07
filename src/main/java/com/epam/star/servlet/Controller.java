@@ -10,29 +10,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class Controller extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.setCharacterEncoding("UTF-8");
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         Parser parser = new Parser();
-        Text parsedText = parser.parseText(request.getParameter("text"));
-        String string = "";
+        Text parsedText = parser.parseText(req.getParameter("text"));
+        String string;
 
         string = parsedText.getParagraph(0).toString();
-        request.setAttribute("paragraph", string);
+        req.setAttribute("paragraph", string);
 
-        string = parsedText.getSentence(0,0).toString();
-        request.setAttribute("sentence", string);
+        System.out.println(string);
 
-        string = parsedText.getWord(0,0,0).toString();
-        request.setAttribute("word", string);
+        string = parsedText.getSentence(0, 0).toString();
+        req.setAttribute("sentence", string);
 
-        string = parsedText.getChar(0,0,0,0).toString();
-        request.setAttribute("char", string);
+        string = parsedText.getWord(0, 0, 0).toString();
+        req.setAttribute("word", string);
 
-        request.getRequestDispatcher("/WEB-INF/result.jsp").forward(request, response);
-    }
+        string = parsedText.getChar(0, 0, 0, 0).toString();
+        req.setAttribute("charr", string);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        req.getRequestDispatcher("/WEB-INF/result.jsp").forward(req, resp);
 
     }
 }

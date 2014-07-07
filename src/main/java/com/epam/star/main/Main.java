@@ -2,10 +2,6 @@ package com.epam.star.main;
 
 import com.epam.star.entity.Text;
 import com.epam.star.parser.Parser;
-import com.epam.star.entity.Paragraph;
-import com.epam.star.entity.Sentence;
-
-import java.util.List;
 
 public class Main {
 
@@ -17,9 +13,19 @@ public class Main {
 
         Text parsedText = parser.parseText(s);
 
-        System.out.println(parsedText.getParagraph(0));
-        System.out.println(parsedText.getSentence(0,0));
-        System.out.println(parsedText.getWord(0,0,0));
-        System.out.println(parsedText.getChar(0,0,0,0));
+        String string;
+
+        string = parsedText.getParagraph(0).toString();
+        System.out.println(string);
+        string = parsedText.getParagraph(1).toString();
+//        System.out.println(string);
+//        string = parsedText.getParagraph(2).toString();
+        System.out.println(string);
+        string = parsedText.getSentence(0, 0).toString();
+        System.out.println(string);
+        string = parsedText.getWord(0, 0, 0).toString();
+        System.out.println(string);
+        string = parsedText.getChar(0, 0, 0, 0).toString();
+        System.out.println(string);
     }
 }

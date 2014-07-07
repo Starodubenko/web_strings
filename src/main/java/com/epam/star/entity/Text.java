@@ -8,6 +8,8 @@ public class Text extends CompoundText<Paragraph> {
         super(components);
     }
 
+    public List<Paragraph> getListParagraphs (){ return components;}
+
     public Paragraph getParagraph(int numberParagraph) {
         return components.get(numberParagraph);
     }
@@ -30,12 +32,12 @@ public class Text extends CompoundText<Paragraph> {
                 .getListChars().get(numberChar);
     }
 
-//    @Override
-//    public String toString() {
-//        String result = "";
-//        for (Paragraph paragraph : components) {
-//            result += paragraph.getParagraph();
-//        }
-//        return result;
-//    }
+    @Override
+    public String toString() {
+        String result = "";
+        for (Paragraph paragraph : components) {
+            result += paragraph.toString();
+        }
+        return result;
+    }
 }

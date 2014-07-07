@@ -84,9 +84,9 @@ public class Parser {
             }
             else{
                 resultList.add(new Paragraph(newParagraph));
-                newParagraph = new ArrayList<>();
-                newParagraph.add(sentence);
-                resultList.add(new Paragraph(newParagraph));
+//                newParagraph = new ArrayList<>();
+//                newParagraph.add(sentence);
+//                resultList.add(new Paragraph(newParagraph));
                 newParagraph = new ArrayList<>();
             }
         }
