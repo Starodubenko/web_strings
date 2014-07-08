@@ -20,8 +20,6 @@ public class Controller extends HttpServlet {
         string = parsedText.getParagraph(0).toString();
         req.setAttribute("paragraph", string);
 
-        System.out.println(string);
-
         string = parsedText.getSentence(0, 0).toString();
         req.setAttribute("sentence", string);
 
@@ -32,6 +30,5 @@ public class Controller extends HttpServlet {
         req.setAttribute("charr", string);
 
         req.getRequestDispatcher("/WEB-INF/result.jsp").forward(req, resp);
-
     }
 }
