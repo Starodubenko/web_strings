@@ -33,6 +33,6 @@ public class Word extends CompoundText<Char> {
     }
 
     public enum Type {
-        WORD, Type, SEPARATOR
+        WORD, SEPARATOR
     }
 }
