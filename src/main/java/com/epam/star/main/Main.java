@@ -2,6 +2,9 @@ package com.epam.star.main;
 
 import com.epam.star.entity.Text;
 import com.epam.star.parser.Parser;
+import com.epam.star.util.firstExercise.Exercise;
+
+import java.util.Arrays;
 
 public class Main {
 
@@ -12,51 +15,16 @@ public class Main {
 
         Parser parser = new Parser();
 
-        Text parsedText = parser.parseText(s);
+    Text parsedText = parser.parseText(s);
 
-//        String string[] = parser.parseTextTest(s);
-//
-//        for (int i = 0; i < parsedText.getSentence(0,0).getListWords().size(); i++) {
-//            System.out.println(i+") "+
-//                    parsedText.getParagraph(0).getListSentences().get(0).getListWords().get(i).toString() +" " +
-//                    parsedText.getParagraph(0).getListSentences().get(0).getListWords().get(i).getType());
-//        }
-//
-//          System.out.println(parsedText.getWord(0,0,5));
+    Exercise ft = new Exercise(parsedText);
 
-//        System.out.println(parsedText.getParagraph(0));
-//        System.out.println(parsedText.getParagraph(1));
-//        System.out.println(parsedText.getParagraph(2));
-//
-//        System.out.println(parsedText.getSentence(0,0));
-//        System.out.println(parsedText.getSentence(0,1));
-//        System.out.println(parsedText.getSentence(0,2));
+    System.out.println(ft.createUnicWordList());
 
+    System.out.println(Arrays.toString(ft.createRepetitionsWordList(ft.createUnicWordList())));
 
-//        string = parsedText.getParagraph(0).toString();
-//        System.out.println(string);
-//        string = parsedText.getParagraph(1).toString();
-//        System.out.println(string);
+    System.out.println(ft.getIndexMaxCountRepitition(ft.createRepetitionsWordList(ft.createUnicWordList())));
 
-//        for (int i = 0; i < parsedText.getListParagraphs().size();i++)
-//        {
-//            for (int j = 0; j < parsedText.getParagraph(i).getListSentences().size();j++)
-//            {
-//                for (int k = 0; k < parsedText.getSentence(i,j).getListWords().size();k++)
-//                {
-//                    System.out.println(parsedText.getWord(i,j,k));
-//                }
-//            }
-//        }
-//
-//        string = parsedText.getListParagraphs().get(2).getListSentences().toString();
-//        System.out.println(string);
-
-//        string = parsedText.getSentence(0, 0).toString();
-//        System.out.println(string);
-//        string = parsedText.getWord(0, 0, 0).toString();
-//        System.out.println(string);
-//        string = parsedText.getChar(0, 0, 0, 0).toString();
-//        System.out.println(string);
+    System.out.println(ft.doFirstTask().toString());
     }
 }

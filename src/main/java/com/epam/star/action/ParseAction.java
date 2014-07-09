@@ -32,18 +32,6 @@ public class ParseAction implements Action{
         string = parsedText.getChar(numParagraph, numSentance, numWord, numSymbol).toString();
         request.setAttribute("charr", string);
 
-//        string = parsedText.getParagraph(0).toString();
-//        request.setAttribute("paragraph", string);
-//
-//        string = parsedText.getSentence(0, 0).toString();
-//        request.setAttribute("sentence", string);
-//
-//        string = parsedText.getWord(0, 0, 0).toString();
-//        request.setAttribute("word", string);
-//
-//        string = parsedText.getChar(0, 0, 0, 0).toString();
-//        request.setAttribute("charr", string);
-
         return "/WEB-INF/result.jsp";
     }
 }

@@ -65,16 +65,12 @@ public class Parser {
         List<Sentence> resultList = new ArrayList<>();
         List<Word> newSentence = new ArrayList<>();
         Pattern pattern = Pattern.compile("[.!?]");
-        Matcher matcher;
-        boolean check = false;
         for (Word word : words) {
             newSentence.add(word);
             if (pattern.matcher(word.toString()).matches()) {
                 resultList.add(new Sentence(newSentence));
                 newSentence = new ArrayList<>();
             }
-            //     check = false;
-            //     if (word.getStringWord().length() < 2) check = true;
         }
         return resultList;
     }
