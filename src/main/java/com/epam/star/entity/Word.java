@@ -5,8 +5,18 @@ import java.util.List;
 
 public class Word extends CompoundText<Char> {
 
+    private Type type;
+
     public Word(List<Char> components) {
         super(components);
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Type getType() {
+        return type;
     }
 
     public List<Char> getListChars() {
@@ -20,5 +30,9 @@ public class Word extends CompoundText<Char> {
             result += aChar.toString();
         }
         return result;
+    }
+
+    public enum Type {
+        WORD, Type, SEPARATOR
     }
 }

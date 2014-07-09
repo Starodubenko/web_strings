@@ -1,10 +1,9 @@
 package com.epam.star.action;
 
-import com.epam.star.entity.Char;
 import com.epam.star.entity.Text;
+import com.epam.star.parser.Parser;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 
 public class ParseAction implements Action{
 
@@ -12,10 +11,38 @@ public class ParseAction implements Action{
     @Override
     public String execute(HttpServletRequest request) {
 
-//        String soursText = request.getParameter("text");
+        Parser parser = new Parser();
+        Text parsedText = parser.parseText(request.getParameter("text"));
+        String string;
+
+        int numParagraph = Integer.parseInt(request.getParameter("paragraph"))-1;
+        int numSentance = Integer.parseInt(request.getParameter("sentence"))-1;
+        int numWord = Integer.parseInt(request.getParameter("word"))-1;
+        int numSymbol = Integer.parseInt(request.getParameter("symbol"))-1;
+
+        string = parsedText.getParagraph(numParagraph).toString();
+        request.setAttribute("paragraph", string);
+
+        string = parsedText.getSentence(numParagraph, numSentance).toString();
+        request.setAttribute("sentence", string);
+
+        string = parsedText.getWord(numParagraph, numSentance, numWord).toString();
+        request.setAttribute("word", string);
+
+        string = parsedText.getChar(numParagraph, numSentance, numWord, numSymbol).toString();
+        request.setAttribute("charr", string);
+
+//        string = parsedText.getParagraph(0).toString();
+//        request.setAttribute("paragraph", string);
 //
-//        String[] text = Char.parseToChar(soursText);
-//        request.setAttribute("text", Arrays.toString(text));
+//        string = parsedText.getSentence(0, 0).toString();
+//        request.setAttribute("sentence", string);
+//
+//        string = parsedText.getWord(0, 0, 0).toString();
+//        request.setAttribute("word", string);
+//
+//        string = parsedText.getChar(0, 0, 0, 0).toString();
+//        request.setAttribute("charr", string);
 
         return "/WEB-INF/result.jsp";
     }

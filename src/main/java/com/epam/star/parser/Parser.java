@@ -38,16 +38,23 @@ public class Parser {
     private List<Word> parseToWords(List<Char> chars) {
         List<Word> resultList = new ArrayList<>();
         List<Char> newWord = new ArrayList<>();
-        Pattern pattern = Pattern.compile("[\\s\\-\\.,!?\\n]?");
+        Pattern pattern = Pattern.compile("[\\s\\p{Punct}]?");
         Matcher matcher;
         for (Char achar : chars) {
-            if (!pattern.matcher(achar.toString()).matches()) {
+            if (!pattern.matcher(achar.toString()).matches())
                 newWord.add(achar);
-            } else {
-                resultList.add(new Word(newWord));
+            else {
+                Word word = new Word(newWord);
+                word.setType(Word.Type.WORD);
+                resultList.add(word);
+
                 newWord = new ArrayList<>();
                 newWord.add(achar);
-                resultList.add(new Word(newWord));
+
+                word = new Word(newWord);
+                word.setType(Word.Type.SEPARATOR);
+                resultList.add(word);
+
                 newWord = new ArrayList<>();
             }
         }

@@ -16,13 +16,22 @@ public class Main {
 
 //        String string[] = parser.parseTextTest(s);
 //
-//        for (String s1 : string) {
-//            System.out.println(s1);
+//        for (int i = 0; i < parsedText.getSentence(0,0).getListWords().size(); i++) {
+//            System.out.println(i+") "+
+//                    parsedText.getParagraph(0).getListSentences().get(0).getListWords().get(i).toString() +" " +
+//                    parsedText.getParagraph(0).getListSentences().get(0).getListWords().get(i).getType());
 //        }
+//
+//          System.out.println(parsedText.getWord(0,0,5));
 
-        System.out.println(parsedText.getParagraph(0));
-        System.out.println(parsedText.getParagraph(1));
-        System.out.println(parsedText.getParagraph(2));
+//        System.out.println(parsedText.getParagraph(0));
+//        System.out.println(parsedText.getParagraph(1));
+//        System.out.println(parsedText.getParagraph(2));
+//
+//        System.out.println(parsedText.getSentence(0,0));
+//        System.out.println(parsedText.getSentence(0,1));
+//        System.out.println(parsedText.getSentence(0,2));
+
 
 //        string = parsedText.getParagraph(0).toString();
 //        System.out.println(string);
