@@ -4,7 +4,6 @@ import com.epam.star.entity.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
@@ -39,7 +38,6 @@ public class Parser {
         List<Word> resultList = new ArrayList<>();
         List<Char> newWord = new ArrayList<>();
         Pattern pattern = Pattern.compile("[\\s\\p{Punct}]?");
-        Matcher matcher;
         for (Char achar : chars) {
             if (!pattern.matcher(achar.toString()).matches())
                 newWord.add(achar);

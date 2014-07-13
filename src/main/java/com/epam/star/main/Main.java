@@ -1,8 +1,9 @@
 package com.epam.star.main;
 
+import com.epam.star.exercise.First;
 import com.epam.star.entity.Text;
 import com.epam.star.parser.Parser;
-import com.epam.star.util.firstExercise.Exercise;
+
 
 import java.util.Arrays;
 
@@ -17,7 +18,7 @@ public class Main {
 
     Text parsedText = parser.parseText(s);
 
-    Exercise ft = new Exercise(parsedText);
+    First ft = new First(parsedText);
 
     System.out.println(ft.createUnicWordList());
 
